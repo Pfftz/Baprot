@@ -3,9 +3,10 @@
 
 using namespace std;
 
-void fungsiVoid()
+void fungsidengandefaultArgument(int a = 10, int b = 20)
 {
-    cout << "Ini adalah fungsi void" << endl;
+    cout << "Ini adalah fungsi dengan default argument" << endl;
+    cout << "Nilai yang anda masukkan adalah " << a << " dan " << b << endl;
 }
 
 void fungsitanpaArgumen()
@@ -50,18 +51,32 @@ int prototype(int a, int b);
 
 void operasiString()
 {
-    cout << "Ini adalah operasi string" << endl;
-    string nama = "UASU";
-    cout << "Nama saya adalah " << nama << endl;
-    cout << "Panjang string adalah " << nama.length() << endl;
-    cout << "String ke 2 adalah " << nama[1] << endl;
-    cout << "Mengganti string ke 2 dengan 'A' " << endl;
-    nama[1] = 'A';
-    cout << "Nama saya adalah " << nama << endl;
-    cout << "Mencari posisi string 'A' " << endl;
-    cout << "Posisi string 'A' adalah " << nama.find('A') << endl;
-    cout << "Mengambil substring dari posisi 1 sebanyak 2 karakter " << endl;
-    cout << "Substring adalah " << nama.substr(1, 2) << endl;
+    cout << " Ini adalah operasi string" << endl;
+    string nama1, nama2;
+    cout << " Input string ke 1:" << endl;
+    cout << " Masukkan nama anda : " << endl;
+    getline(cin, nama1);
+    cout << " Nama saya adalah " << nama1 << endl;
+    cout << " Panjang string adalah " << nama1.length() << endl;
+    cout << " String ke 2 adalah " << nama1[1] << endl;
+    cout << " Mengganti string ke 2 dengan 'A' " << endl;
+    nama1[1] = 'A';
+    cout << " String setelah dirubah: " << endl;
+    cout << " Nama saya adalah " << nama1 << endl;
+    cout << "\n Mencari posisi string 'A' " << endl;
+    cout << " Posisi string 'A' adalah " << nama1.find('A') << endl;
+    cout << " Mengambil substring dari posisi 1 sebanyak 2 karakter " << endl;
+    cout << " Substring adalah " << nama1.substr(1, 2) << endl;
+    cout << " Mengambil substring dari posisi 1 sampai akhir " << endl;
+    cout << " Substring adalah " << nama1.substr(1, nama1.length()) << endl;
+    cout << "\n Input string ke 2:" << endl;
+    cout << " Masukkan nama anda : " << endl;
+    getline(cin, nama2);
+    cout << " Menggabungkan string " << endl;
+    cout << " Nama saya adalah " << nama1 + nama2 << endl;
+    cout << " Mengganti string " << endl;
+    nama1.replace(0, nama1.length(), nama2);
+    cout << " Nama saya adalah " << nama1 << endl;
 }
 
 void array1Dimensi()
@@ -109,7 +124,7 @@ int main()
         cout << "+----------------------------------------- +" << endl;
         cout << " Program Sederhana C++" << endl;
         cout << " Menu Utama" << endl;
-        cout << " 1. Fungsi Void" << endl;
+        cout << " 1. Fungsi dengan default argument" << endl;
         cout << " 2. Fungsi tanpa argumen" << endl;
         cout << " 3. Fungsi dengan argumen" << endl;
         cout << " 4. Fungsi dengan nilai kembali" << endl;
@@ -128,7 +143,7 @@ int main()
         {
         case 1:
             cout << "Anda memilih fungsi void" << endl;
-            fungsiVoid();
+            fungsidengandefaultArgument();
             break;
         case 2:
             cout << "Anda memilih fungsi tanpa argumen" << endl;
