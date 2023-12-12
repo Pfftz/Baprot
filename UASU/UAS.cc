@@ -128,36 +128,47 @@ int main()
         {
         case 1:
             cout << "Anda memilih fungsi void" << endl;
+            fungsiVoid();
             break;
         case 2:
             cout << "Anda memilih fungsi tanpa argumen" << endl;
+            fungsitanpaArgumen();
             break;
         case 3:
             cout << "Anda memilih fungsi dengan argumen" << endl;
+            fungsidenganArgumen(10);
             break;
         case 4:
             cout << "Anda memilih fungsi dengan nilai kembali" << endl;
+            cout << "Nilai kembali adalah " << fungsidenganNilaiKembali() << endl;
             break;
         case 5:
             cout << "Anda memilih fungsi dengan nilai kembali dan argumen" << endl;
+            cout << "Nilai kembali adalah " << fungsidenganNilaiKembaliDanArgumen(10) << endl;
             break;
         case 6:
             cout << "Anda memilih fungsi rekursif" << endl;
+            cout << "Nilai kembali adalah " << fungsiRekursif(10) << endl;
             break;
         case 7:
             cout << "Anda memilih prototype" << endl;
+            cout << "Nilai kembali adalah " << prototype(10, 20) << endl;
             break;
         case 8:
             cout << "Anda memilih operasi string" << endl;
+            operasiString();
             break;
         case 9:
             cout << "Anda memilih array 1 dimensi" << endl;
+            array1Dimensi();
             break;
         case 10:
             cout << "Anda memilih array 2 dimensi" << endl;
+            array2Dimensi();
             break;
         case 11:
             cout << "Anda memilih array 3 dimensi" << endl;
+            array3Dimensi();
             break;
         case 0:
             cout << "Anda memilih keluar" << endl;
