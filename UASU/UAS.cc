@@ -22,7 +22,11 @@ void fungsidenganArgumen(int a)
 
 int fungsidenganNilaiKembali()
 {
-    return 10;
+    int a, b, c;
+    a = 66;
+    b = 77;
+    c = a + b;
+    return c;
 }
 
 int fungsidenganNilaiKembaliDanArgumen(int a)
@@ -42,7 +46,7 @@ int fungsiRekursif(int a)
     }
     else
     {
-        return a * fungsiRekursif(a - 1);
+        return a * fungsiRekursif(a - 1); 
     }
 }
 
@@ -55,11 +59,12 @@ void operasiString()
     // Get the first string from the user
     string namaPertama;
     cout << "Masukkan nama pertama anda: ";
+    cin.ignore(); // Ignore the leftover newline character in the input buffer
     getline(cin, namaPertama);
 
     // Display the length of the first string
     cout << "Panjang string pertama adalah " << namaPertama.length() << endl;
-
+    
     // Replace the second character of the first string with 'A'
     namaPertama[1] = 'A';
     cout << "String pertama setelah dirubah: " << namaPertama << endl;
@@ -87,42 +92,76 @@ void operasiString()
     // Replace the first string with the second string
     namaPertama.replace(0, namaPertama.length(), namaKedua);
     cout << "Nama pertama setelah diganti: " << namaPertama << endl;
+
+    // Extract a substring from the first string
+    string subNamaPertama = namaPertama.substr(0, 5);
+    cout << "Sub-string dari nama pertama: " << subNamaPertama << endl;
+
+    // Insert the second string into the first string
+    namaPertama.insert(0, namaKedua);
+    cout << "Nama pertama setelah disisipkan: " << namaPertama << endl;
+
+    // Erase a part of the first string
+    namaPertama.erase(0, 5);
+    cout << "Nama pertama setelah dihapus: " << namaPertama << endl;
+
+    // Compare the first and second strings
+    int hasil = namaPertama.compare(namaKedua);
+    if (hasil == 0)
+    {
+        cout << "Nama pertama dan kedua sama." << endl;
+    }
+    else if (hasil < 0)
+    {
+        cout << "Nama pertama kurang dari nama kedua." << endl;
+    }
+    else
+    {
+        cout << "Nama pertama lebih dari nama kedua." << endl;
+    }
 }
 
+// Function for 1D array operations
+// Function for 1D array operations
 void array1Dimensi()
 {
-    cout << " Ini adalah array 1 dimensi" << endl;
+    cout << "Ini adalah array 1 dimensi" << endl;
     int array1[5] = {1, 2, 3, 4, 5};
-    cout << " Array ke 2 adalah " << array1[1] << endl;
-    cout << " Mengganti array ke 2 dengan 10 " << endl;
-    array1[1] = 10;
-    cout << " Array ke 2 adalah " << array1[1] << endl;
-    cout << " Mengambil panjang array " << endl;
-    cout << " Panjang array adalah " << sizeof(array1) / sizeof(array1[0]) << endl;
+    for (int i = 0; i < 5; i++)
+    {
+        cout << "Element at index " << i << " is " << array1[i] << endl;
+    }
 }
 
+// Function for 2D array operations
 void array2Dimensi()
 {
-    cout << " Ini adalah array 2 dimensi" << endl;
+    cout << "Ini adalah array 2 dimensi" << endl;
     int array2[2][3] = {{1, 2, 3}, {4, 5, 6}};
-    cout << " Array ke 2 adalah " << array2[1][1] << endl;
-    cout << " Mengganti array ke 2 dengan 10 " << endl;
-    array2[1][1] = 10;
-    cout << " Array ke 2 adalah " << array2[1][1] << endl;
-    cout << " Mengambil panjang array " << endl;
-    cout << " Panjang array adalah " << sizeof(array2) / sizeof(array2[0]) << endl;
+    for (int i = 0; i < 2; i++)
+    {
+        for (int j = 0; j < 3; j++)
+        {
+            cout << "Element at position [" << i << "][" << j << "] is " << array2[i][j] << endl;
+        }
+    }
 }
 
+// Function for 3D array operations
 void array3Dimensi()
 {
-    cout << " Ini adalah array 3 dimensi" << endl;
+    cout << "Ini adalah array 3 dimensi" << endl;
     int array3[2][3][2] = {{{1, 2}, {3, 4}, {5, 6}}, {{7, 8}, {9, 10}, {11, 12}}};
-    cout << " Array ke 2 adalah " << array3[1][1][1] << endl;
-    cout << " Mengganti array ke 2 dengan 10 " << endl;
-    array3[1][1][1] = 10;
-    cout << " Array ke 2 adalah " << array3[1][1][1] << endl;
-    cout << " Mengambil panjang array " << endl;
-    cout << " Panjang array adalah " << sizeof(array3) / sizeof(array3[0]) << endl;
+    for (int i = 0; i < 2; i++)
+    {
+        for (int j = 0; j < 3; j++)
+        {
+            for (int k = 0; k < 2; k++)
+            {
+                cout << "Element at position [" << i << "][" << j << "][" << k << "] is " << array3[i][j][k] << endl;
+            }
+        }
+    }
 }
 
 int main()
@@ -182,7 +221,8 @@ int main()
             break;
         case 5:
             cout << " Anda memilih fungsi dengan nilai kembali dan argumen" << endl;
-            cout << fungsidenganNilaiKembaliDanArgumen(10) << endl;
+            int hasil = fungsidenganNilaiKembaliDanArgumen(10);
+            cout << hasil << endl;
             cout << endl;
             system("pause");
             system("cls");
