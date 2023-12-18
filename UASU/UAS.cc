@@ -46,7 +46,7 @@ int fungsiRekursif(int a)
     }
     else
     {
-        return a * fungsiRekursif(a - 1); 
+        return a * fungsiRekursif(a - 1);
     }
 }
 
@@ -64,7 +64,7 @@ void operasiString()
 
     // Display the length of the first string
     cout << "Panjang string pertama adalah " << namaPertama.length() << endl;
-    
+
     // Replace the second character of the first string with 'A'
     namaPertama[1] = 'A';
     cout << "String pertama setelah dirubah: " << namaPertama << endl;
@@ -166,7 +166,7 @@ void array3Dimensi()
 
 int main()
 {
-    int pilihan;
+    int pilihan, hasil;
     bool isRunning = true;
     while (isRunning)
     {
@@ -221,7 +221,7 @@ int main()
             break;
         case 5:
             cout << " Anda memilih fungsi dengan nilai kembali dan argumen" << endl;
-            int hasil = fungsidenganNilaiKembaliDanArgumen(10);
+            hasil = fungsidenganNilaiKembaliDanArgumen(10);
             cout << hasil << endl;
             cout << endl;
             system("pause");
@@ -270,12 +270,17 @@ int main()
             system("cls");
             break;
         case 0:
+        {
             cout << " Anda memilih keluar" << endl;
             cout << endl;
             isRunning = false;
             break;
+        }
         default:
+            cout << endl;
+            cout << " +----------------------------------------- +" << endl;
             cout << " Pilihan anda tidak ada" << endl;
+            cout << " +----------------------------------------- +" << endl;
             cout << endl;
             system("pause");
             system("cls");
