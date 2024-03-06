@@ -1,0 +1,15 @@
+Nama = Abdulhadi
+Nim = 3337230041 B
+Prodi = IF
+Fakultas = Teknik
+Semester = 2
+Tahun = 2024
+Tempat Lahir = Cilegon
+Kelamin = Laki-laki
+Kampus = Untirta
+Hobi = Main Game
+Makanan Favorit = Nasi Goreng
+Minuman Favorit = Es Teh
+Motto = Jangan Menyerah
+Cita-cita = Programmer
+Alamat = Cilegon
