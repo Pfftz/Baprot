@@ -1,3 +1,4 @@
+'''Pertemuan6 KTP CRUD SQLite3'''
 import sqlite3
 
 # Fungsi untuk membuat tabel ktp jika belum ada
