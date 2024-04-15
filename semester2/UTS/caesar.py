@@ -1,7 +1,6 @@
 '''UTS BAPRO - Caesar Cipher'''
+
 # Fungsi untuk enkripsi teks dengan Caesar Cipher
-
-
 def caesar_encrypt(plaintext, shift):
     ciphertext = ""
     for char in plaintext:
@@ -18,15 +17,11 @@ def caesar_encrypt(plaintext, shift):
     return ciphertext
 
 # Fungsi untuk dekripsi teks dengan Caesar Cipher
-
-
 def caesar_decrypt(ciphertext, shift):
     # Dekripsi adalah enkripsi dengan shift negatif
     return caesar_encrypt(ciphertext, -shift)
 
 # Fungsi utama
-
-
 def main():
     while True:
         print("\nProgram Caesar Cipher")
