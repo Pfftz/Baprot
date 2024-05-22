@@ -1,4 +1,4 @@
-'''UTS BAPRO - Caesar Cipher'''
+'''UTS BAHASA PEMROGRAMAN II - Caesar Cipher'''
 
 # Fungsi untuk enkripsi teks dengan Caesar Cipher
 def caesar_encrypt(plaintext, shift):
