@@ -10832,3 +10832,65 @@ semester2/UAS/djangoforbeginners-main/ch9-blog-deploy/templates/post_edit.html
 semester2/UAS/djangoforbeginners-main/ch9-blog-deploy/templates/post_new.html
 semester2/UAS/djangoforbeginners-main/ch9-blog-deploy/templates/registration/login.html
 semester2/UAS/djangoforbeginners-main/ch9-blog-deploy/templates/registration/signup.html
+semester2/IITISoC-22-Web-34-Movie-Rental-System-master/.gitignore
+semester2/IITISoC-22-Web-34-Movie-Rental-System-master/db.sqlite3
+semester2/IITISoC-22-Web-34-Movie-Rental-System-master/manage.py
+semester2/IITISoC-22-Web-34-Movie-Rental-System-master/Pipfile
+semester2/IITISoC-22-Web-34-Movie-Rental-System-master/Pipfile.lock
+semester2/IITISoC-22-Web-34-Movie-Rental-System-master/README.md
+semester2/IITISoC-22-Web-34-Movie-Rental-System-master/requirements.txt
+semester2/IITISoC-22-Web-34-Movie-Rental-System-master/iitipro/__init__.py
+semester2/IITISoC-22-Web-34-Movie-Rental-System-master/iitipro/admin.py
+semester2/IITISoC-22-Web-34-Movie-Rental-System-master/iitipro/apps.py
+semester2/IITISoC-22-Web-34-Movie-Rental-System-master/iitipro/models.py
+semester2/IITISoC-22-Web-34-Movie-Rental-System-master/iitipro/tests.py
+semester2/IITISoC-22-Web-34-Movie-Rental-System-master/iitipro/urls.py
+semester2/IITISoC-22-Web-34-Movie-Rental-System-master/iitipro/views.py
+semester2/IITISoC-22-Web-34-Movie-Rental-System-master/iitipro/__pycache__/__init__.cpython-310.pyc
+semester2/IITISoC-22-Web-34-Movie-Rental-System-master/iitipro/__pycache__/__init__.cpython-311.pyc
+semester2/IITISoC-22-Web-34-Movie-Rental-System-master/iitipro/__pycache__/admin.cpython-310.pyc
+semester2/IITISoC-22-Web-34-Movie-Rental-System-master/iitipro/__pycache__/admin.cpython-311.pyc
+semester2/IITISoC-22-Web-34-Movie-Rental-System-master/iitipro/__pycache__/apps.cpython-310.pyc
+semester2/IITISoC-22-Web-34-Movie-Rental-System-master/iitipro/__pycache__/apps.cpython-311.pyc
+semester2/IITISoC-22-Web-34-Movie-Rental-System-master/iitipro/__pycache__/models.cpython-310.pyc
+semester2/IITISoC-22-Web-34-Movie-Rental-System-master/iitipro/__pycache__/models.cpython-311.pyc
+semester2/IITISoC-22-Web-34-Movie-Rental-System-master/iitipro/__pycache__/urls.cpython-310.pyc
+semester2/IITISoC-22-Web-34-Movie-Rental-System-master/iitipro/__pycache__/urls.cpython-311.pyc
+semester2/IITISoC-22-Web-34-Movie-Rental-System-master/iitipro/__pycache__/views.cpython-310.pyc
+semester2/IITISoC-22-Web-34-Movie-Rental-System-master/iitipro/__pycache__/views.cpython-311.pyc
+semester2/IITISoC-22-Web-34-Movie-Rental-System-master/iitipro/migrations/__init__.py
+semester2/IITISoC-22-Web-34-Movie-Rental-System-master/iitipro/migrations/__pycache__/__init__.cpython-310.pyc
+semester2/IITISoC-22-Web-34-Movie-Rental-System-master/iitipro/migrations/__pycache__/__init__.cpython-311.pyc
+semester2/IITISoC-22-Web-34-Movie-Rental-System-master/iitisoc/__init__.py
+semester2/IITISoC-22-Web-34-Movie-Rental-System-master/iitisoc/asgi.py
+semester2/IITISoC-22-Web-34-Movie-Rental-System-master/iitisoc/settings.py
+semester2/IITISoC-22-Web-34-Movie-Rental-System-master/iitisoc/urls.py
+semester2/IITISoC-22-Web-34-Movie-Rental-System-master/iitisoc/wsgi.py
+semester2/IITISoC-22-Web-34-Movie-Rental-System-master/iitisoc/__pycache__/__init__.cpython-310.pyc
+semester2/IITISoC-22-Web-34-Movie-Rental-System-master/iitisoc/__pycache__/__init__.cpython-311.pyc
+semester2/IITISoC-22-Web-34-Movie-Rental-System-master/iitisoc/__pycache__/settings.cpython-310.pyc
+semester2/IITISoC-22-Web-34-Movie-Rental-System-master/iitisoc/__pycache__/settings.cpython-311.pyc
+semester2/IITISoC-22-Web-34-Movie-Rental-System-master/iitisoc/__pycache__/urls.cpython-310.pyc
+semester2/IITISoC-22-Web-34-Movie-Rental-System-master/iitisoc/__pycache__/urls.cpython-311.pyc
+semester2/IITISoC-22-Web-34-Movie-Rental-System-master/iitisoc/__pycache__/wsgi.cpython-310.pyc
+semester2/IITISoC-22-Web-34-Movie-Rental-System-master/iitisoc/__pycache__/wsgi.cpython-311.pyc
+semester2/IITISoC-22-Web-34-Movie-Rental-System-master/static/Amber.jpg
+semester2/IITISoC-22-Web-34-Movie-Rental-System-master/static/anuragnew.jpg
+semester2/IITISoC-22-Web-34-Movie-Rental-System-master/static/avatar.png
+semester2/IITISoC-22-Web-34-Movie-Rental-System-master/static/logo1.png
+semester2/IITISoC-22-Web-34-Movie-Rental-System-master/static/script.js
+semester2/IITISoC-22-Web-34-Movie-Rental-System-master/static/stls.css
+semester2/IITISoC-22-Web-34-Movie-Rental-System-master/static/style.css
+semester2/IITISoC-22-Web-34-Movie-Rental-System-master/static/styleabout.css
+semester2/IITISoC-22-Web-34-Movie-Rental-System-master/static/Sushil Yadav.jpg
+semester2/IITISoC-22-Web-34-Movie-Rental-System-master/static/Vishesh.jpg
+semester2/IITISoC-22-Web-34-Movie-Rental-System-master/static/slider posters/featured dr strange.jpg
+semester2/IITISoC-22-Web-34-Movie-Rental-System-master/static/slider posters/featured KGF2.jpg
+semester2/IITISoC-22-Web-34-Movie-Rental-System-master/static/slider posters/featured thor ragnarok.jpg
+semester2/IITISoC-22-Web-34-Movie-Rental-System-master/static/slider posters/style.css
+semester2/IITISoC-22-Web-34-Movie-Rental-System-master/templates/about.html
+semester2/IITISoC-22-Web-34-Movie-Rental-System-master/templates/contactus.html
+semester2/IITISoC-22-Web-34-Movie-Rental-System-master/templates/index.html
+semester2/IITISoC-22-Web-34-Movie-Rental-System-master/templates/login.html
+semester2/IITISoC-22-Web-34-Movie-Rental-System-master/templates/reaction.html
+semester2/IITISoC-22-Web-34-Movie-Rental-System-master/templates/register.html
