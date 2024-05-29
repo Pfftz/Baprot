@@ -14,40 +14,137 @@
         <link rel="stylesheet" href="{% static 'css/app.css' %}" />
     </head>
     <body>
-        <div
-            id="header"
-            class="d-flex justify-content-between align-items-center"
-        >
-            <h1><a href="/">Library Sigma</a></h1>
-            {% if user.is_authenticated %}
-            <div id="user" class="ml-auto">
-                Hello {{ user }},
-                <form
-                    method="post"
-                    action="{% url 'logout' %}"
-                    style="display: inline"
+        <div style="position: relative">
+            <nav
+                class="navbar navbar-expand-lg"
+                style="position: sticky; top: 0"
+            >
+                <div
+                    class="container-fluid"
+                    style="
+                        background-color: rgba(48, 58, 61, 1);
+                        border-radius: 20px;
+                        box-shadow: 5px 5px 10px black;
+                    "
                 >
-                    {% csrf_token %}
+                    <span style="display: inline-block; vertical-align: middle">
+                        <img
+                            src="{% static '2064.png'  %}"
+                            style="width: 80px; height: 80px"
+                        />
+                    </span>
                     <button
-                        type="submit"
-                        style="
-                            background: none !important;
-                            border: none;
-                            padding: 0 !important;
-                            color: #069;
-                            text-decoration: underline;
-                            cursor: pointer;
-                        "
+                        class="navbar-toggler"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#navbarSupportedContent"
+                        aria-controls="navbarSupportedContent"
+                        aria-expanded="false"
+                        aria-label="Toggle navigation"
                     >
-                        Logout
+                        <span class="navbar-toggler-icon"></span>
                     </button>
-                </form>
-            </div>
-            {% endif %}
+                    <div
+                        class="collapse navbar-collapse"
+                        id="navbarSupportedContent"
+                    >
+                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                            <li class="nav-item">
+                                <a class="navbar" aria-current="page" href="/"
+                                    >Home</a
+                                >
+                            </li>
+                            <li class="nav-item">
+                                <a class="navbar" href="about">About</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="navbar" href="contactus"
+                                    >Contact us</a
+                                >
+                            </li>
+                        </ul>
+                        {% if user.is_authenticated %}
+                        <ul
+                            class="navbar-nav ml-auto mb-2 mb-lg-0 align-vertically"
+                        >
+                            <li class="nav-item navElement">
+                                <span class="navbar-text user-greeting"
+                                    >Hello, {{ user }}</span
+                                >
+                            </li>
+                            <li class="nav-item navElement">
+                                <form
+                                    method="post"
+                                    action="{% url 'logout' %}"
+                                    class="logout-form"
+                                >
+                                    {% csrf_token %}
+                                    <button
+                                        type="submit"
+                                        class="navbar logout-button"
+                                    >
+                                        Logout
+                                    </button>
+                                </form>
+                            </li>
+                        </ul>
+                        {% else %}
+                        <ul class="navbar-nav ml-auto mb-2 mb-lg-0">
+                            <li class="nav-item">
+                                <a class="navbar" href="login"
+                                    >Login or Signup</a
+                                >
+                            </li>
+                        </ul>
+                        {% endif %}
+                    </div>
+                </div>
+            </nav>
+        </div>
+        <div class="des">
+            <h2 style="font-size: 45px; margin-top: 20px; margin-left: 20px">
+                Welcome to
+                <span
+                    style="
+                        font-size: 55px;
+                        font-family: 'Rubik Distressed', cursive;
+                        color: lightskyblue;
+                    "
+                    >Sigma Library</span
+                >
+            </h2>
+            <p
+                style="
+                    font-family: 'Fjalla One', sans-serif;
+                    font-size: 22px;
+                    margin-left: 20px;
+                "
+            >
+                Sigma Library: Fuel Your Brainrot Addiction <br />
+                Vast knowledge realm. Endless genres. Intuitive exploration.
+            </p>
         </div>
         <!-- header -->
         <div id="content">{% block content %} {% endblock %}</div>
+        <br /><br />
         <!-- content -->
-        <div id="footer"></div>
+        <div class="content">
+            <footer style="background-color: rgba(48, 58, 61, 1)">
+                <div id="grid2"></div>
+                <br />
+                <hr />
+                <div style="color: darkgray">
+                    Website Terms and Conditions | Privacy Policy | Supplier
+                    Code of conduct | Do not sell my information | This whole
+                    content has copyrights | Punishment for the guilty will be
+                    legally abiding
+                </div>
+                <br />
+                <div style="text-align: center">Web Team 34 Inc.</div>
+                <div style="text-align: center">
+                    All Rights Reserved &copy; 2024
+                </div>
+            </footer>
+        </div>
     </body>
 </html>
