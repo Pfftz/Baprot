@@ -7,9 +7,9 @@ from .models import Book
 class BookForm(ModelForm):
     class Meta:
         model = Book
-        fields = ['name', 'pages']
+        fields = ['name', 'pages', 'author', 'publisher', 'category', 'stock', 'cover_image']  # Updated fields
 
-@login_required
+
 def book_list(request, template_name='books_fbv_admin/book_list.html'):
     if request.user.is_superuser:
         book = Book.objects.all()
@@ -20,13 +20,24 @@ def book_list(request, template_name='books_fbv_admin/book_list.html'):
     return render(request, template_name, data)
 
 @login_required
-def book_create(request, template_name='books_fbv_admin/book_form.html'):
-    form = BookForm(request.POST or None)
-    if form.is_valid():
-        book = form.save(commit=False)
-        book.user = request.user
+def book_borrow(request, pk):
+    book = get_object_or_404(Book, pk=pk)
+    if book.stock > 0:
+        book.stock -= 1
         book.save()
-        return redirect('books_fbv_admin:book_list')
+    return redirect('/')
+
+@login_required
+def book_create(request, template_name='books_fbv_admin/book_form.html'):
+    if request.method == 'POST':
+        form = BookForm(request.POST, request.FILES)  # Updated to handle file upload
+        if form.is_valid():
+            book = form.save(commit=False)
+            book.user = request.user
+            book.save()
+            return redirect('books_fbv_admin:book_list')
+    else:
+        form = BookForm()
     return render(request, template_name, {'form':form})
 
 @login_required
@@ -35,10 +46,13 @@ def book_update(request, pk, template_name='books_fbv_admin/book_form.html'):
         book= get_object_or_404(Book, pk=pk)
     else:
         book= get_object_or_404(Book, pk=pk, user=request.user)
-    form = BookForm(request.POST or None, instance=book)
-    if form.is_valid():
-        form.save()
-        return redirect('books_fbv_admin:book_list')
+    if request.method == 'POST':
+        form = BookForm(request.POST, request.FILES, instance=book)  # Updated to handle file upload
+        if form.is_valid():
+            form.save()
+            return redirect('books_fbv_admin:book_list')
+    else:
+        form = BookForm(instance=book)
     return render(request, template_name, {'form':form})
 
 @login_required
