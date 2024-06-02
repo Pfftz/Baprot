@@ -9,12 +9,9 @@ class BookForm(ModelForm):
         model = Book
         fields = ['name', 'pages', 'author', 'publisher', 'category', 'stock', 'cover_image']  # Updated fields
 
-
+@login_required
 def book_list(request, template_name='books_fbv_admin/book_list.html'):
-    if request.user.is_superuser:
-        book = Book.objects.all()
-    else:
-        book = Book.objects.filter(user=request.user)
+    book = Book.objects.all()
     data = {}
     data['object_list'] = book
     return render(request, template_name, data)

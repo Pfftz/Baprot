@@ -16,6 +16,12 @@
                     class="card-img-top"
                     alt="{{ book.name }}"
                 />
+                {% else %}
+                <img
+                    src="{% static 'jempol.jpeg' %}"
+                    class="card-img-top"
+                    alt="{{ book.name }}"
+                />
                 {% endif %}
                 <div class="card-body">
                     <h5 class="card-title">{{ book.name }}</h5>
@@ -43,14 +49,16 @@
         </div>
         {% endfor %}
     </div>
-
-    <div class="card w-50">
+    <hr />
+    <div class="card" style="width: 18rem">
         <br />
         <div class="card-body">
             <h5 class="card-title">Suki</h5>
             <p class="card-text">Khusus atmin</p>
-            <a href="#" class="btn btn-primary"
-                ><a href="{% url 'books_fbv_admin:book_list' %}">Button</a></a
+            <a
+                href="{% url 'books_fbv_admin:book_list' %}"
+                class="btn btn-primary"
+                >Button</a
             >
         </div>
     </div>
