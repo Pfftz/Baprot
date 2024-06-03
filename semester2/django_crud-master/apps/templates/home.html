@@ -15,12 +15,22 @@
                     src="{{ book.cover_image.url }}"
                     class="card-img-top"
                     alt="{{ book.name }}"
+                    style="
+                        max-width: 100%;
+                        max-height: 100%;
+                        object-fit: contain;
+                    "
                 />
                 {% else %}
                 <img
                     src="{% static 'jempol.jpeg' %}"
                     class="card-img-top"
                     alt="{{ book.name }}"
+                    style="
+                        max-width: 100%;
+                        max-height: 100%;
+                        object-fit: contain;
+                    "
                 />
                 {% endif %}
                 <div class="card-body">
@@ -47,8 +57,9 @@
                 </div>
             </div>
         </div>
-        {% endfor %}
+        {% if forloop.counter|divisibleby:3 %}
     </div>
+    <div class="row mt-3">{% endif %} {% endfor %}</div>
     <hr />
     <div class="card" style="width: 18rem">
         <br />

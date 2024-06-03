@@ -8,9 +8,6 @@
     <h2><a href="{% url 'books_fbv_admin:book_list' %}" class="btn btn-primary">Books Admin</a>: Edit</h2>
 
     <form method="post" class="mt-3" enctype="multipart/form-data">{% csrf_token %}
-        {% if form.instance.cover_image %}
-            <p>Current image: <img src="{{ form.instance.cover_image.url }}"></p>
-        {% endif %}
         {{ form.as_p }}
         <button type="submit" class="btn btn-success">Submit</button>
     </form>

@@ -10,7 +10,7 @@ class Book(models.Model):
     publisher = models.CharField(max_length=200, default="ngawi industri")  # New field for publisher
     category = models.CharField(max_length=200, default="All Categories")  # New field for category
     stock = models.IntegerField(default=0)  # New field for stock with default value
-    cover_image = models.ImageField(upload_to='covers', default='jempol.jpeg', blank=True)  # New field for cover image
+    cover_image = models.ImageField(upload_to='covers', blank=True)  # New field for cover image
 
     def __str__(self):
         return str(self.name)  # Convert name to string representation
