@@ -7,17 +7,15 @@
 <link rel="stylesheet" href="{% static 'css/style.css' %}" />
 <link rel="stylesheet" href="{% static 'css/normalize.css' %}" />
 
-<main class="pb-4">
+<main class="pb-4" style="background-color: #f5f5f5f5">
     <!-- Featured Book -->
     <div class="bg-white border">
         <section class="featured-book mx-auto p-1">
-            <br />
             <h1
                 class="font-style-2 font-size-md color-2 black-highlight pointer"
             >
                 FEATURED BOOK
             </h1>
-            <br />
             <article class="d-flex justify-between py-1">
                 <img
                     src="{% static 'siddhartha.jpg' %}"
@@ -51,8 +49,8 @@
                 </div>
             </article>
         </section>
+        <br />
     </div>
-
     <div class="container mt-5">
         {% for category, book_list in books.items %}
         <h2
@@ -104,14 +102,16 @@
                             <a
                                 href="{% url 'books_fbv_admin:book_borrow' book.id %}"
                                 class="btn btn-primary btn-sm d-flex align-items-center justify-content-center"
-                                >Pinjam</a
+                                style="padding: 2px 5px; font-size: 15px"
+                                >Borrow</a
                             >
                             {% else %}
                             <button
                                 class="btn btn-outline-info btn-sm d-flex align-items-center justify-content-center"
+                                style="padding: 2px 5px; font-size: 15px"
                                 disabled
                             >
-                                Pinjam
+                                Borrow
                             </button>
                             {% endif %}
                         </p>
@@ -128,17 +128,18 @@
         {% endfor %}
         <hr />
 
-        <div class="card" style="width: 18rem">
-            <br />
+        <div class="card text-center">
+            <div class="card-header">Hello, Suki! This one is for Admin.</div>
             <div class="card-body">
-                <h5 class="card-title">Suki</h5>
-                <p class="card-text">Khusus atmin</p>
+                <h5 class="card-title">Admin CRUD</h5>
+                <p class="card-text">Lead Them To Paradise!</p>
                 <a
                     href="{% url 'books_fbv_admin:book_list' %}"
                     class="btn btn-primary"
                     >Button</a
                 >
             </div>
+            <div class="card-footer text-body-secondary">777 days ago</div>
         </div>
     </div>
 </main>
