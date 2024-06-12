@@ -157,6 +157,13 @@ a:hover {
     box-sizing: border-box;
     grid-row-gap: 30px;
 }
+.book-logo {
+    position: absolute;
+    right: 0;
+    top: 100px; /* adjust this value as needed */
+    width: 150px; /* adjust this value as needed */
+    height: auto;
+}
 .footHead {
     grid-column-start: 1;
     grid-column-end: 5;

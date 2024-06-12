@@ -4,75 +4,132 @@
     rel="stylesheet"
     href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
 />
+<link rel="stylesheet" href="{% static 'css/style.css' %}" />
+<link rel="stylesheet" href="{% static 'css/normalize.css' %}" />
 
-<div class="container mt-5">
-    <div class="row">
-        {% for book in object_list %}
-        <div class="col-md-4">
-            <div class="card" style="width: 18rem">
+<main class="pb-4">
+    <!-- Featured Book -->
+    <div class="bg-white border">
+        <section class="featured-book mx-auto p-1">
+            <br />
+            <h1
+                class="font-style-2 font-size-md color-2 black-highlight pointer"
+            >
+                FEATURED BOOK
+            </h1>
+            <br />
+            <article class="d-flex justify-between py-1">
+                <img
+                    src="{% static 'siddhartha.jpg' %}"
+                    alt="siddhartha"
+                    class="d-block h-200"
+                />
+                <div class="ml-1 d-flex flex-column justify-between">
+                    <h4
+                        class="font-style-2 font-size-md color-1 pointer black-highlight"
+                    >
+                        Siddhartha: A Novel
+                        <span
+                            class="font-style-1 font-size-md color-2 black-highlight"
+                            >by Hermann Hesse, Hilda Rosner (Translator)</span
+                        >
+                    </h4>
+                    <p
+                        class="font-style-1 font-size-s color-3 py-1 visible-in-sm gray-highlight pointer"
+                    >
+                        Herman Hesse's classic novel has delighted, inspired,
+                        and influenced generations of readers, writers, and
+                        thinkers. In this story of a wealthy Indian Brahmin who
+                        casts off a life of privilege to seek spiritual
+                        fulfillment.
+                    </p>
+                    <p
+                        class="font-size-md font-style-2 color-3 gray-highlight pointer"
+                    >
+                        Rating: 4/5
+                    </p>
+                </div>
+            </article>
+        </section>
+    </div>
+
+    <div class="container mt-5">
+        <div class="row d-flex justify-content-center align-items-center">
+            {% for book in object_list %}
+            <article
+                class="book-card bg-white my-1"
+                style="width: 20%; margin: 1%; box-sizing: border-box"
+            >
+                <h2 class="d-none">{{ book.name }}</h2>
                 {% if book.cover_image %}
                 <img
                     src="{{ book.cover_image.url }}"
-                    class="card-img-top"
                     alt="{{ book.name }}"
-                    style="
-                        max-width: 100%;
-                        max-height: 100%;
-                        object-fit: contain;
-                    "
+                    class="book-card-img d-block"
                 />
                 {% else %}
                 <img
                     src="{% static 'jempol.jpeg' %}"
-                    class="card-img-top"
                     alt="{{ book.name }}"
-                    style="
-                        max-width: 100%;
-                        max-height: 100%;
-                        object-fit: contain;
-                    "
+                    class="book-card-img d-block"
                 />
                 {% endif %}
-                <div class="card-body">
-                    <h5 class="card-title">{{ book.name }}</h5>
-                    <p class="card-text">{{ book.author }}</p>
-                    <p class="card-text">Available stock: {{ book.stock }}</p>
-                    {% if book.stock > 0 %}
-                    <a
-                        href="{% url 'books_fbv_admin:book_borrow' book.id %}"
-                        class="btn btn-primary btn-sm d-flex align-items-center justify-content-center"
-                        style="width: 100px"
+                <div
+                    class="p-half pointer d-flex flex-column justify-between h-200"
+                >
+                    <p
+                        class="font-style-1 font-size-md color-3 py-1 gray-highlight"
                     >
-                        Pinjam
-                    </a>
-                    {% else %}
-                    <button
-                        class="btn btn-outline-info btn-sm d-flex align-items-center justify-content-center"
-                        disabled
-                        style="width: 100px"
-                    >
-                        Pinjam
-                    </button>
-                    {% endif %}
+                        {{ book.name }}
+                    </p>
+                    <div>
+                        <p
+                            class="font-size-sm font-style-2 color-3 gray-highlight"
+                        >
+                            by {{ book.author }}
+                        </p>
+                        <p
+                            class="font-size-s font-style-2 color-3 py-1 gray-highlight"
+                        >
+                            Available stock: {{ book.stock }}
+                        </p>
+                        <p class="py-1 d-flex justify-between align-center">
+                            {% if book.stock > 0 %}
+                            <a
+                                href="{% url 'books_fbv_admin:book_borrow' book.id %}"
+                                class="btn btn-primary btn-sm d-flex align-items-center justify-content-center"
+                                >Pinjam</a
+                            >
+                            {% else %}
+                            <button
+                                class="btn btn-outline-info btn-sm d-flex align-items-center justify-content-center"
+                                disabled
+                            >
+                                Pinjam
+                            </button>
+                            {% endif %}
+                        </p>
+                    </div>
                 </div>
+            </article>
+            {% if forloop.counter|divisibleby:4 %}
+        </div>
+        <div class="row mt-3 d-flex justify-content-center align-items-center">{% endif %} {% endfor %}</div>
+        <hr />
+
+        <div class="card" style="width: 18rem">
+            <br />
+            <div class="card-body">
+                <h5 class="card-title">Suki</h5>
+                <p class="card-text">Khusus atmin</p>
+                <a
+                    href="{% url 'books_fbv_admin:book_list' %}"
+                    class="btn btn-primary"
+                    >Button</a
+                >
             </div>
         </div>
-        {% if forloop.counter|divisibleby:3 %}
     </div>
-    <div class="row mt-3">{% endif %} {% endfor %}</div>
-    <hr />
-    <div class="card" style="width: 18rem">
-        <br />
-        <div class="card-body">
-            <h5 class="card-title">Suki</h5>
-            <p class="card-text">Khusus atmin</p>
-            <a
-                href="{% url 'books_fbv_admin:book_list' %}"
-                class="btn btn-primary"
-                >Button</a
-            >
-        </div>
-    </div>
-</div>
+</main>
 
 {% endblock %}

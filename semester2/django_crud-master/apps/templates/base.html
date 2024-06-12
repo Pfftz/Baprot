@@ -12,109 +12,151 @@
             crossorigin="anonymous"
         />
         <link rel="stylesheet" href="{% static 'css/app.css' %}" />
+        <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+        <link rel="stylesheet" href="{% static 'css/normalize.css' %}" />
     </head>
     <body>
-        <div style="position: relative">
-            <nav
-                class="navbar navbar-expand-lg"
-                style="position: sticky; top: 0; background-color: #000000"
-                data-bs-theme="dark"
-            >
-                <div
-                    class="container-fluid"
-                    style="border-radius: 20px; box-shadow: 5px 5px 10px black"
+        <header>
+            <div style="position: relative">
+                <nav
+                    class="navbar navbar-expand-lg"
+                    style="position: sticky; top: 0; background-color: #000000"
+                    data-bs-theme="dark"
                 >
-                    <span style="display: inline-block; vertical-align: middle">
-                        <img
-                            src="{% static '2064.png'  %}"
-                            style="width: 80px; height: 80px"
-                        />
-                    </span>
-                    <button
-                        class="navbar-toggler"
-                        type="button"
-                        data-bs-toggle="collapse"
-                        data-bs-target="#navbarSupportedContent"
-                        aria-controls="navbarSupportedContent"
-                        aria-expanded="false"
-                        aria-label="Toggle navigation"
-                    >
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
                     <div
-                        class="collapse navbar-collapse"
-                        id="navbarSupportedContent"
+                        class="container-fluid"
+                        style="
+                            border-radius: 20px;
+                            box-shadow: 5px 5px 10px black;
+                        "
                     >
-                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                            <li class="nav-item">
-                                <a
-                                    class="nav-link"
-                                    style="color: #ffffff"
-                                    aria-current="page"
-                                    href="/"
-                                    >Home</a
-                                >
-                            </li>
-                            <li class="nav-item">
-                                <a
-                                    class="nav-link"
-                                    style="color: #ffffff"
-                                    href="about"
-                                    >About</a
-                                >
-                            </li>
-                            <li class="nav-item">
-                                <a
-                                    class="nav-link"
-                                    style="color: #ffffff"
-                                    href="contactus"
-                                    >Contact us</a
-                                >
-                            </li>
-                        </ul>
-                        {% if user.is_authenticated %}
-                        <ul class="navbar-nav ml-auto mb-2 mb-lg-0">
-                            <li class="nav-item">
-                                <span
-                                    class="navbar-text"
-                                    style="color: #ffffff; margin-right: 10px"
-                                    style="font-size: large"
-                                    >Hello, {{ user }}</span
-                                >
-                            </li>
-                            <li class="nav-item">
-                                <form method="post" action="{% url 'logout' %}">
-                                    {% csrf_token %}
-                                    <button
-                                        type="submit"
-                                        class="btn btn-danger"
+                        <span
+                            style="
+                                display: inline-block;
+                                vertical-align: middle;
+                            "
+                        >
+                            <img
+                                src="{% static '2064.png'  %}"
+                                style="width: 80px; height: 80px"
+                            />
+                        </span>
+                        <button
+                            class="navbar-toggler"
+                            type="button"
+                            data-bs-toggle="collapse"
+                            data-bs-target="#navbarSupportedContent"
+                            aria-controls="navbarSupportedContent"
+                            aria-expanded="false"
+                            aria-label="Toggle navigation"
+                        >
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div
+                            class="collapse navbar-collapse"
+                            id="navbarSupportedContent"
+                        >
+                            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                                <li class="nav-item">
+                                    <a
+                                        class="nav-link"
+                                        style="color: #ffffff"
+                                        aria-current="page"
+                                        href="/"
+                                        >Home</a
                                     >
-                                        Logout
-                                    </button>
-                                </form>
-                            </li>
-                        </ul>
-                        {% else %}
-                        <ul class="navbar-nav ml-auto mb-2 mb-lg-0">
-                            <li class="nav-item">
-                                <a
-                                    class="nav-link"
-                                    style="color: #ffffff"
-                                    href="login"
-                                    >Login or Signup</a
-                                >
-                            </li>
-                        </ul>
-                        {% endif %}
+                                </li>
+                                <li class="nav-item">
+                                    <a
+                                        class="nav-link"
+                                        style="color: #ffffff"
+                                        href="about"
+                                        >About</a
+                                    >
+                                </li>
+                                <li class="nav-item">
+                                    <a
+                                        class="nav-link"
+                                        style="color: #ffffff"
+                                        href="contactus"
+                                        >Contact us</a
+                                    >
+                                </li>
+                            </ul>
+                            {% if user.is_authenticated %}
+                            <ul class="navbar-nav ml-auto mb-2 mb-lg-0">
+                                <li class="nav-item">
+                                    <span
+                                        class="navbar-text"
+                                        style="
+                                            color: #ffffff;
+                                            margin-right: 10px;
+                                        "
+                                        style="font-size: large"
+                                        >Hello, {{ user }}</span
+                                    >
+                                </li>
+                                <li class="nav-item">
+                                    <form
+                                        method="post"
+                                        action="{% url 'logout' %}"
+                                    >
+                                        {% csrf_token %}
+                                        <button
+                                            type="submit"
+                                            class="btn btn-danger"
+                                        >
+                                            Logout
+                                        </button>
+                                    </form>
+                                </li>
+                            </ul>
+                            {% else %}
+                            <ul class="navbar-nav ml-auto mb-2 mb-lg-0">
+                                <li class="nav-item">
+                                    <a
+                                        class="nav-link"
+                                        style="color: #ffffff"
+                                        href="login"
+                                        >Login or Signup</a
+                                    >
+                                </li>
+                            </ul>
+                            {% endif %}
+                        </div>
                     </div>
-                </div>
-            </nav>
-        </div>
-        <div class="des">
-            <h1 class="bd-title mb-0" style=" margin-top: 20px; margin-left: 20px">
-                Katalog Buku
-            </h1>
-        </div>
+                </nav>
+            </div>
+            <section
+                class="hero-section flex-column align-center justify-center p-3"
+            >
+                <a
+                    href="/index.html"
+                    class="image-highlight book-logo"
+                    style="position: absolute; left: 0px; top: 100px"
+                >
+                    <img
+                        src="{% static 'book-bg.svg' %}"
+                        alt="bookshop-logo"
+                        style="width: 210px; height: auto"
+                    />
+                </a>
+                <br />
+                <br />
+                <h1 class="hero-title font-style-2 color-white p-1">
+                    <br />
+                    Katalog Buku Sigma
+                </h1>
+                <br />
+                <br />
+                <h4 class="font-style-1 color-white font-size-md">
+                    Sebuah Open Library untuk semua kalangan
+                </h4>
+                <br />
+                <br />
+                <br />
+            </section>
+        </header>
         <!-- header -->
         <div id="content">{% block content %} {% endblock %}</div>
         <br /><br />
