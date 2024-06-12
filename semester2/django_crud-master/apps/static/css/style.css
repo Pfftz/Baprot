@@ -424,9 +424,15 @@ img[alt="cart-logo-2"] {
 /* Footer */
 
 .footer-links-container,
-.copyright-section,
 .filter-search-container {
     max-width: 1024px;
+}
+
+.copyright-section {
+    max-width: 1024px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .location-info {

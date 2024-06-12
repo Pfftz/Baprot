@@ -6,8 +6,9 @@ from django.contrib import messages
 # Create your views here.
 
 def home(request):
-    book = Book.objects.all()  # get all books
-    return render(request, "home.html", {'object_list': book})
+    categories = ['Non Fiction', 'Fiction', 'Academy']
+    books = {category: Book.objects.filter(category=category) for category in categories}
+    return render(request, "home.html", {'books': books})
 
 def index(request):
     return render(request , 'index.html')
