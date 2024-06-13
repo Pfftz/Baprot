@@ -355,11 +355,6 @@ img[alt="user-img"] {
 
 /* Hero Section */
 
-.hero-section {
-    background: url("../book-bg.svg") no-repeat,
-        linear-gradient(var(--color-4), var(--color-1));
-}
-
 .hero-title {
     font-size: 3rem;
 }

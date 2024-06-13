@@ -3,8 +3,7 @@ from django.contrib import admin
 from django.conf import settings
 from django.conf.urls.static import static
 from atexit import register
-from unicodedata import name
-from theme.views import register, login, contactus, about, home
+from theme.views import register, login, contactus, about, home, categories
 
 # existing urlpatterns
 urlpatterns = [
@@ -16,6 +15,7 @@ urlpatterns = [
     path('login', login , name='login'),
     path('contactus' , contactus , name='contactus'),
     path('about', about , name='about'),
+    path('category', categories , name='categories'),
 ]
 
 if settings.DEBUG:
