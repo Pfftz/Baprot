@@ -10,10 +10,176 @@
 />
 <link rel="stylesheet" href="{% static 'css/style.css' %}" />
 <link rel="stylesheet" href="{% static 'css/normalize.css' %}" />
+<style>
+    .button {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background-color: rgb(20, 20, 20);
+        border: none;
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.164);
+        cursor: pointer;
+        transition-duration: 0.3s;
+        overflow: hidden;
+        position: relative;
+    }
+
+    .svgIcon {
+        width: 12px;
+        transition-duration: 0.3s;
+    }
+
+    .svgIcon path {
+        fill: white;
+    }
+
+    .button:hover {
+        width: 50px;
+        border-radius: 50px;
+        transition-duration: 0.3s;
+        background-color: rgb(255, 69, 69);
+        align-items: center;
+    }
+
+    .button:hover .svgIcon {
+        width: 50px;
+        transition-duration: 0.3s;
+        transform: translateY(60%);
+    }
+
+    .button::before {
+        position: absolute;
+        top: -20px;
+        content: "Delete";
+        color: white;
+        transition-duration: 0.3s;
+        font-size: 2px;
+    }
+
+    .button:hover::before {
+        font-size: 13px;
+        opacity: 1;
+        transform: translateY(30px);
+        transition-duration: 0.3s;
+    }
+
+    .edit {
+        all: unset;
+        display: flex;
+        align-items: center;
+        position: relative;
+        padding: 0.05em 4.5em;
+        border: mediumspringgreen solid 0.15em;
+        border-radius: 0.25em;
+        color: mediumspringgreen;
+        font-size: 1.5em;
+        font-weight: 600;
+        cursor: pointer;
+        overflow: hidden;
+        transition: border 300ms, color 300ms;
+        user-select: none;
+    }
+
+    .edit p {
+        z-index: 1;
+    }
+
+    .edit:hover {
+        color: #212121;
+    }
+
+    .edit:active {
+        border-color: teal;
+    }
+
+    .edit::after,
+    .edit::before {
+        content: "";
+        position: absolute;
+        width: 9em;
+        aspect-ratio: 1;
+        background: mediumspringgreen;
+        opacity: 50%;
+        border-radius: 50%;
+        transition: transform 500ms, background 300ms;
+    }
+
+    .edit::before {
+        left: 0;
+        transform: translateX(-8em);
+    }
+
+    .edit::after {
+        right: 0;
+        transform: translateX(8em);
+    }
+
+    .edit:hover:before {
+        transform: translateX(-1em);
+    }
+
+    .edit:hover:after {
+        transform: translateX(1em);
+    }
+
+    .edit:active:before,
+    .edit:active:after {
+        background: teal;
+    }
+    .btn {
+        outline: 0;
+        display: inline-flex;
+        align-items: center;
+        justify-content: space-between;
+        background: #40b3a2;
+        min-width: 200px;
+        border: 0;
+        border-radius: 4px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        box-sizing: border-box;
+        padding: 16px 20px;
+        color: #fff;
+        font-size: 12px;
+        font-weight: 600;
+        letter-spacing: 1.2px;
+        text-transform: uppercase;
+        overflow: hidden;
+        cursor: pointer;
+    }
+
+    .btn:hover {
+        opacity: 0.95;
+    }
+
+    .btn .animation {
+        border-radius: 100%;
+        animation: ripple 0.6s linear infinite;
+    }
+
+    @keyframes ripple {
+        0% {
+            box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.1),
+                0 0 0 20px rgba(255, 255, 255, 0.1),
+                0 0 0 40px rgba(255, 255, 255, 0.1),
+                0 0 0 60px rgba(255, 255, 255, 0.1);
+        }
+
+        100% {
+            box-shadow: 0 0 0 20px rgba(255, 255, 255, 0.1),
+                0 0 0 40px rgba(255, 255, 255, 0.1),
+                0 0 0 60px rgba(255, 255, 255, 0.1),
+                0 0 0 80px rgba(255, 255, 255, 0);
+        }
+    }
+</style>
 
 <div class="container mt-5">
     <h2>
-        <a href="{% url 'books_fbv_admin:book_list' %}" class="btn btn-primary"
+        <a href="{% url 'books_fbv_admin:book_list' %}" class="btn-primary"
             >Books Admin</a
         >
     </h2>
@@ -49,21 +215,29 @@
                 />
                 {% endif %}
                 <div class="card-body">
-                    <h5 class="card-title">{{ book.name }}</h5>
-                    <p class="card-text">{{ book.author }}</p>
-                    <p class="card-text">Available stock: {{ book.stock }}</p>
-                    <a
-                        href="{% url 'books_fbv_admin:book_edit' book.id %}"
-                        class="btn btn-outline-info btn-sm"
-                    >
-                        <i class="fa fa-edit"></i> Edit
-                    </a>
-                    <a
-                        href="{% url 'books_fbv_admin:book_delete' book.id %}"
-                        class="btn btn-outline-danger btn-sm"
-                    >
-                        <i class="fa fa-trash"></i> Delete
-                    </a>
+                    <h5 class="card-title font-size-lg">{{ book.name }}</h5>
+                    <p class="card-text font-size-md">{{ book.author }}</p>
+                    <p class="card-text font-size-s">
+                        Available stock: {{ book.stock }}
+                    </p>
+                    <div style="display: flex; justify-content: space-between">
+                        <button
+                            class="edit"
+                            onclick="location.href='{% url 'books_fbv_admin:book_edit' book.id %}';"
+                        >
+                            <p>Edit</p>
+                        </button>
+                        <button
+                            class="button"
+                            onclick="location.href='{% url 'books_fbv_admin:book_delete' book.id %}';"
+                        >
+                            <svg viewBox="0 0 448 512" class="svgIcon">
+                                <path
+                                    d="M135.2 17.7L128 32H32C14.3 32 0 46.3 0 64S14.3 96 32 96H416c17.7 0 32-14.3 32-32s-14.3-32-32-32H320l-7.2-14.3C307.4 6.8 296.3 0 284.2 0H163.8c-12.1 0-23.2 6.8-28.6 17.7zM416 128H32L53.2 467c1.6 25.3 22.6 45 47.9 45H346.9c25.3 0 46.3-19.7 47.9-45L416 128z"
+                                ></path>
+                            </svg>
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -72,10 +246,15 @@
     <div class="row mt-3 d-flex justify-content-center align-items-center">
         {% endif %} {% endfor %}
     </div>
-
-    <a href="{% url 'books_fbv_admin:book_new' %}" class="btn btn-success mt-3"
-        >New Book</a
-    >
+    <br />
+    <div>
+        <button
+            class="btn"
+            onclick="location.href='{% url 'books_fbv_admin:book_new' %}';"
+        >
+            <i class="animation"></i>New Book<i class="animation"></i>
+        </button>
+    </div>
 </div>
 
 {% endblock %}

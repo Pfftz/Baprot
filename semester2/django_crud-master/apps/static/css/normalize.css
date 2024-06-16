@@ -158,14 +158,6 @@ img {
  * 2. Remove the margin in Firefox and Safari.
  */
 
-button {
-    font-family: inherit;
-    font-size: 150%; /* Increase font size */
-    line-height: 1.15;
-    margin: 0;
-    padding: 20px 40px; /* Add padding */
-}
-
 input,
 optgroup,
 select,
@@ -246,7 +238,7 @@ fieldset {
  * 3. Remove the padding so developers are not caught out when they zero out
  *    `fieldset` elements in all browsers.
  */
-
+ 
 legend {
     box-sizing: border-box; /* 1 */
     color: inherit; /* 2 */
