@@ -2,6 +2,8 @@ from django.shortcuts import render,redirect
 from books_fbv_admin.models import Book  # assuming you have a Book model in your models.py
 from django.contrib.auth.models import User,auth
 from django.contrib import messages
+from django.core.mail import send_mail
+from theme.forms import ContactModelForm
 
 # Create your views here.
 
@@ -13,6 +15,24 @@ def categories(request):
     categories = ['Non Fiction', 'Fiction', 'Academy']
     books = {category: Book.objects.filter(category=category) for category in categories}
     return render(request, "category.html", {'books': books})
+
+def contactus_email(request):
+    if request.method == 'POST':
+        form = ContactModelForm(request.POST)
+        if form.is_valid():
+            contact = form.save()  # Save the form data to the database
+
+            # send an email to yourself
+            send_mail(
+                'Contact Form Submission from {}'.format(contact.name),
+                'Message: {}\nFrom: {}\nPhone: {}'.format(contact.message, contact.email, contact.phone),  # Include phone in the email
+                contact.email,
+                ['3337230041@untirta.ac.id'],  # replace with your email
+            )
+            return redirect('success')
+    else:
+        form = ContactModelForm()
+    return render(request, 'contactus.html', {'form': form})
 
 def index(request):
     return render(request , 'index.html')
@@ -26,11 +46,9 @@ def about(request):
 def reaction(request):
     return render(request,'reaction.html')
 
-
 def logout(request):
     auth.logout(request)
     return redirect('/')
-
 
 def register(request):
     if request.method == 'POST':
@@ -48,9 +66,6 @@ def register(request):
             return redirect('register')
     else:
         return render(request , 'register.html')
-
-
-
 
 def login(request):
     if request.method == 'POST':
