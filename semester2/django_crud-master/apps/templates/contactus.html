@@ -153,16 +153,16 @@
             <form action="contact" method="POST">
                 {% csrf_token %}
 
-                <label for="{{ form.name.id_for_label }}">Name: </label>
+                <label for="{{ form.name.id_for_label }}" class="font-size-s">Name: </label>
                 <input type="text" id="name" name="name" required />
 
-                <label for="{{ form.email.id_for_label }}">Email: </label>
+                <label for="{{ form.email.id_for_label }}" class="font-size-s">Email: </label>
                 <input type="email" id="email" name="email" required />
 
-                <label for="{{ form.phone.id_for_label }}">Phone: </label>
+                <label for="{{ form.phone.id_for_label }}" class="font-size-s">Phone: </label>
                 <input type="tel" id="phone" name="phone" />
 
-                <label for="{{ form.message.id_for_label }}">Message: </label>
+                <label for="{{ form.message.id_for_label }}" class="font-size-s">Message: </label>
                 <textarea
                     id="message"
                     name="message"

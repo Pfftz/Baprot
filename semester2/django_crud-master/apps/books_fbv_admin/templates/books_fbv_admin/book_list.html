@@ -72,7 +72,7 @@
         display: flex;
         align-items: center;
         position: relative;
-        padding: 0.05em 4.5em;
+        padding: 0.1em 3.5em;
         border: mediumspringgreen solid 0.15em;
         border-radius: 0.25em;
         color: mediumspringgreen;
@@ -130,7 +130,7 @@
     .edit:active:after {
         background: teal;
     }
-    .btn {
+    .green {
         outline: 0;
         display: inline-flex;
         align-items: center;
@@ -151,11 +151,11 @@
         cursor: pointer;
     }
 
-    .btn:hover {
+    .green:hover {
         opacity: 0.95;
     }
 
-    .btn .animation {
+    .green .animation {
         border-radius: 100%;
         animation: ripple 0.6s linear infinite;
     }
@@ -178,46 +178,41 @@
 </style>
 
 <div class="container mt-5">
-    <h2>
-        <a href="{% url 'books_fbv_admin:book_list' %}" class="btn-primary"
-            >Books Admin</a
-        >
-    </h2>
-
     <div class="row d-flex justify-content-center align-items-center">
         {% for book in object_list %}
-        <div class="col-md-3">
+        <article
+            class="book-card bg-white my-1"
+            style="width: 20%; margin: 1%; box-sizing: border-box"
+        >
+            <h2 class="d-none">{{ book.name }}</h2>
+            {% if book.cover_image %}
+            <img
+                src="{{ book.cover_image.url }}"
+                alt="{{ book.name }}"
+                class="book-card-img d-block"
+            />
+            {% else %}
+            <img
+                src="{% static 'jempol.jpeg' %}"
+                alt="{{ book.name }}"
+                class="book-card-img d-block"
+            />
+            {% endif %}
             <div
-                class="card"
-                style="width: 100%; margin: 1%; box-sizing: border-box"
+                class="p-half pointer d-flex flex-column justify-between h-200"
             >
-                {% if book.cover_image %}
-                <img
-                    src="{{ book.cover_image.url }}"
-                    class="card-img-top"
-                    alt="{{ book.name }}"
-                    style="
-                        max-width: 100%;
-                        max-height: 100%;
-                        object-fit: contain;
-                    "
-                />
-                {% else %}
-                <img
-                    src="{% static 'jempol.jpeg' %}"
-                    class="card-img-top"
-                    alt="{{ book.name }}"
-                    style="
-                        max-width: 100%;
-                        max-height: 100%;
-                        object-fit: contain;
-                    "
-                />
-                {% endif %}
-                <div class="card-body">
-                    <h5 class="card-title font-size-lg">{{ book.name }}</h5>
-                    <p class="card-text font-size-md">{{ book.author }}</p>
-                    <p class="card-text font-size-s">
+                <p
+                    class="font-style-1 font-size-lg color-3 py-1 gray-highlight"
+                >
+                    {{ book.name }}
+                </p>
+                <div>
+                    <p class="font-size-sm font-style-2 color-3 gray-highlight">
+                        by {{ book.author }}
+                    </p>
+                    <p
+                        class="font-size-s font-style-2 color-3 py-1 gray-highlight"
+                    >
                         Available stock: {{ book.stock }}
                     </p>
                     <div style="display: flex; justify-content: space-between">
@@ -240,20 +235,19 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </article>
         {% if forloop.counter|divisibleby:4 %}
     </div>
-    <div class="row mt-3 d-flex justify-content-center align-items-center">
+    <div class="row mt-4 justify-content-center align-items-center">
         {% endif %} {% endfor %}
-    </div>
-    <br />
-    <div>
-        <button
-            class="btn"
-            onclick="location.href='{% url 'books_fbv_admin:book_new' %}';"
-        >
-            <i class="animation"></i>New Book<i class="animation"></i>
-        </button>
+        <div>
+            <button
+                class="green"
+                onclick="location.href='{% url 'books_fbv_admin:book_new' %}';"
+            >
+                <i class="animation"></i>New Book<i class="animation"></i>
+            </button>
+        </div>
     </div>
 </div>
 

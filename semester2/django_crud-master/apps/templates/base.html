@@ -92,33 +92,23 @@
                                 </li>
                             </ul>
                             {% if user.is_authenticated %}
-                            <ul class="navbar-nav ml-auto mb-2 mb-lg-0">
-                                <li class="nav-item">
-                                    <span
-                                        class="navbar-text"
-                                        style="
-                                            color: #ffffff;
-                                            margin-right: 10px;
-                                        "
-                                        style="font-size: large"
-                                        >Hello, {{ user }}</span
-                                    >
-                                </li>
-                                <li class="nav-item">
-                                    <form
-                                        method="post"
-                                        action="{% url 'logout' %}"
-                                    >
-                                        {% csrf_token %}
-                                        <button
-                                            type="submit"
-                                            class="btn btn-danger"
-                                        >
-                                            Logout
-                                        </button>
-                                    </form>
-                                </li>
-                            </ul>
+                            <div class="d-flex align-items-center">
+                                <span
+                                    class="navbar-text mr-3"
+                                    style="
+                                        color: #ffffff;
+                                        font-size: large;
+                                    "
+                                >
+                                    Hello, {{ user }}
+                                </span>
+                                <form method="post" action="{% url 'logout' %}">
+                                    {% csrf_token %}
+                                    <button type="submit" class="btn btn-danger font-size-s">
+                                        Logout
+                                    </button>
+                                </form>
+                            </div>
                             {% else %}
                             <ul class="navbar-nav ml-auto mb-2 mb-lg-0">
                                 <li class="nav-item">
@@ -135,7 +125,7 @@
                     </div>
                 </nav>
             </div>
-           <section
+<section
     class="hero-section flex-column align-center justify-center p-3"
     style=" background: url('{% static "book-bg.svg" %}') no-repeat, linear-gradient(var(--color-4), var(--color-1));"
 >
