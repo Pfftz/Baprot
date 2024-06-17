@@ -8,161 +8,168 @@
 <link rel="stylesheet" href="{% static 'css/normalize.css' %}" />
 
 <style>
- * {
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
-}
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
 
-body {
-	font-family: Arial, sans-serif;
-	line-height: 1.6;
-}
+    body {
+        font-family: Arial, sans-serif;
+        line-height: 1.6;
+    }
 
-/* Header styles */
+    /* Header styles */
 
-.logo {
-	font-size: 2rem;
-}
+    .logo {
+        font-size: 2rem;
+    }
 
-.reachUs-button {
-	padding: 1rem;
-	background-color: #0dac30;
-	border: none;
-	color: white;
-	border-radius: 4px;
-	cursor: pointer;
-}
-.reachUs-button:hover{
-	background-color: #1ac840;
-}
+    .reachUs-button {
+        padding: 1rem;
+        background-color: #0dac30;
+        border: none;
+        color: white;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+    .reachUs-button:hover {
+        background-color: #1ac840;
+    }
 
-/* banner section styles */
-.banner {
-	text-align: center;
-	background-color: #ffffff;
-	margin: 0 auto;
-}
+    /* banner section styles */
+    .banner {
+        text-align: center;
+        background-color: #ffffff;
+        margin: 0 auto;
+    }
 
-.banner img {
-	max-width: 100%;
-	height: auto;
-}
-/* Contact form styles */
-.contact-form {
-	padding: 40px 0;
-	margin: 0 10px;
-}
+    .banner img {
+        max-width: 100%;
+        height: auto;
+    }
+    /* Contact form styles */
+    .contact-form {
+        padding: 40px 0;
+        margin: 0 10px;
+    }
 
-.form-container {
-	max-width: 40%;
-	margin: 0 auto;
-	padding: 20px;
-	background-color: #ffffff;
-	border-radius: 10px;
-	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-}
+    .form-container {
+        max-width: 40%;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #ffffff;
+        border-radius: 10px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    }
 
-.contact-form h2 {
-	text-align: center;
-	margin-bottom: 20px;
-}
+    .contact-form h2 {
+        text-align: center;
+        margin-bottom: 20px;
+    }
 
-.form-group {
-	margin-bottom: 20px;
-}
+    .form-group {
+        margin-bottom: 20px;
+    }
 
-.form-container label {
-	display:block;
-	font-weight: bold;
-}
-.form-container input, textarea{
-	width: 100%;
-	padding: 10px;
-	border: 1px solid #ccc;
-	border-radius: 4px;
-	margin-bottom: 1rem;
-	resize: vertical;
-}
-.submit-button {
-	padding: 10px 20px;
-	background-color: #0dac30;
-	border: none;
-	color: white;
-	border-radius: 4px;
-	font-size: 1rem;
-	cursor: pointer;
-}
+    .form-container label {
+        display: block;
+        font-weight: bold;
+    }
+    .form-container input,
+    textarea {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        margin-bottom: 1rem;
+        resize: vertical;
+    }
+    .submit-button {
+        padding: 10px 20px;
+        background-color: #0dac30;
+        border: none;
+        color: white;
+        border-radius: 4px;
+        font-size: 1rem;
+        cursor: pointer;
+    }
 
-/* Contact info styles */
-.contact-info {
-	text-align: center;
-	padding: 50px 0;
-	background-color: #f7f7f7;
-}
+    /* Contact info styles */
+    .contact-info {
+        text-align: center;
+        padding: 50px 0;
+        background-color: #f7f7f7;
+    }
 
-.contact-info h2 {
-	margin-bottom: 20px;
-}
+    .contact-info h2 {
+        margin-bottom: 20px;
+    }
 
-/* Footer styles */
-footer {
-	padding: 20px;
-	text-align: center;
-	background-color: #333;
-	color: white;
-}
-/* Hamburger styles */
-.hamburger {
-	display: none;
-	color: rgb(0, 0, 0);
-	font-size: 1.5rem;
-	cursor: pointer;
-}
+    /* Footer styles */
+    footer {
+        padding: 20px;
+        text-align: center;
+        background-color: #333;
+        color: white;
+    }
+    /* Hamburger styles */
+    .hamburger {
+        display: none;
+        color: rgb(0, 0, 0);
+        font-size: 1.5rem;
+        cursor: pointer;
+    }
 
-/* Media queries for responsiveness */
-@media only screen and (max-width: 768px) {
-	.logo {
-		display: none;
-	}
+    /* Media queries for responsiveness */
+    @media only screen and (max-width: 768px) {
+        .logo {
+            display: none;
+        }
 
-	.hamburger {
-		display: flex;
-	}
-}
+        .hamburger {
+            display: flex;
+        }
+    }
 </style>
 
 <main>
     <!-- banner section  -->
     <section class="banner">
-        <img src=
-"https://media.geeksforgeeks.org/wp-content/uploads/20230822131732/images.png"
-            alt="Welcome to our Contact Us page">
+        <img
+            src="https://media.geeksforgeeks.org/wp-content/uploads/20230822131732/images.png"
+            alt="Welcome to our Contact Us page"
+        />
         <h1>Get in Touch With Me</h1>
         <p class="font-size-s">
-          We're here to answer any questions you may have.
-          </p>
+            We're here to answer any questions you may have.
+        </p>
     </section>
- 
+
     <!-- Contact form -->
     <section class="contact-form">
         <div class="form-container">
             <h2>Your Details</h2>
-            <form action="{% url 'submit' %}" method="POST">
+            <form method="POST" action="{% url 'contact' %}">
                 {% csrf_token %}
- 
+
                 <label for="name">Name: </label>
-                <input type="text" id="name" name="name" required>
- 
+                <input type="text" id="name" name="name" required />
+
                 <label for="email">Email: </label>
-                <input type="email" id="email" name="email" required>
- 
+                <input type="email" id="email" name="email" required />
+
                 <label for="phone">Phone: </label>
-                <input type="tel" id="phone" name="phone">
- 
+                <input type="tel" id="phone" name="phone" />
+
                 <label for="message">Message: </label>
-                <textarea id="message" name="message" rows="4" required></textarea>
- 
+                <textarea
+                    id="message"
+                    name="message"
+                    rows="4"
+                    required
+                ></textarea>
+
                 <button type="submit" class="submit-button">Submit</button>
             </form>
         </div>

@@ -3,7 +3,9 @@ from books_fbv_admin.models import Book  # assuming you have a Book model in you
 from django.contrib.auth.models import User,auth
 from django.contrib import messages
 from django.core.mail import send_mail
-from theme.forms import ContactModelForm
+from django.template.loader import render_to_string
+from theme.forms import ContactForm
+from django.conf import settings
 
 # Create your views here.
 
@@ -16,28 +18,35 @@ def categories(request):
     books = {category: Book.objects.filter(category=category) for category in categories}
     return render(request, "category.html", {'books': books})
 
-def contactus_email(request):
+def contact(request):
     if request.method == 'POST':
-        form = ContactModelForm(request.POST)
+        form = ContactForm(request.POST)
         if form.is_valid():
-            contact = form.save()  # Save the form data to the database
-
-            # send an email to yourself
-            send_mail(
-                'Contact Form Submission from {}'.format(contact.name),
-                'Message: {}\nFrom: {}\nPhone: {}'.format(contact.message, contact.email, contact.phone),  # Include phone in the email
-                contact.email,
-                ['3337230041@untirta.ac.id'],  # replace with your email
-            )
+            name = request.POST['name']
+            email = request.POST['email']
+            phone = request.POST['phone']
+            message = request.POST['message']
+            html = render_to_string('emailTemplates.html', {'name': name, 'email': email, 'phone': phone, 'message': message})
+            try:
+                send_mail('The contact form subject',name, message, phone, 'settings.EMAIL_HOST_USER', [email], html_message=html)
+            except Exception as e:
+                print("Failed to send email. Error: ", e)
+                messages.error(request, 'Failed to send email. Please try again later.')
+                return render(request, 'contactus.html', {'form': form})
             return redirect('success')
+        else:
+            print("Form is not valid. Errors: ", form.errors)
     else:
-        form = ContactModelForm()
+        form = ContactForm()
     return render(request, 'contactus.html', {'form': form})
+
+def success(request):
+    return render(request, 'success.html')
 
 def index(request):
     return render(request , 'index.html')
 
-def contactus(request):
+def contactform(request):
     return render(request,'contactus.html')
 
 def about(request):

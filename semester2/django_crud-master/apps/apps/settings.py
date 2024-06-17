@@ -134,9 +134,9 @@ LOGOUT_REDIRECT_URL = '/'
 DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
 
 # Email settings
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_PORT = 587
+EMAIL_HOST = 'sandbox.smtp.mailtrap.io'
+EMAIL_HOST_USER = '39528f5ad33f15'
+EMAIL_HOST_PASSWORD = '4b05269fb2a152'
+EMAIL_PORT = '2525'
 EMAIL_USE_TLS = True
-EMAIL_HOST_USER = '3337230041@untirta.ac.id'
-EMAIL_HOST_PASSWORD = 'oppie9/10'
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
