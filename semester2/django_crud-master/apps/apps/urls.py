@@ -16,7 +16,7 @@ urlpatterns = [
     path('contactus' , contactform , name='contactus'),
     path('about', about , name='about'),
     path('category', categories , name='categories'),
-    path('contactus', contact, name='contact'),
+    path('contact', contact, name='contact'),
     path('success', success, name='success'),
 ]
 

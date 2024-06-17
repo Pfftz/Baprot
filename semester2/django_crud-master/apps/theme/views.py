@@ -18,6 +18,8 @@ def categories(request):
     books = {category: Book.objects.filter(category=category) for category in categories}
     return render(request, "category.html", {'books': books})
 
+from django.conf import settings
+
 def contact(request):
     if request.method == 'POST':
         form = ContactForm(request.POST)
@@ -28,7 +30,7 @@ def contact(request):
             message = request.POST['message']
             html = render_to_string('emailTemplates.html', {'name': name, 'email': email, 'phone': phone, 'message': message})
             try:
-                send_mail('The contact form subject',name, message, phone, 'settings.EMAIL_HOST_USER', [email], html_message=html)
+                send_mail('The contact form subject', message, settings.EMAIL_HOST_USER, [email], html_message=html)
             except Exception as e:
                 print("Failed to send email. Error: ", e)
                 messages.error(request, 'Failed to send email. Please try again later.')
