@@ -6,25 +6,53 @@
 />
 <link rel="stylesheet" href="{% static 'css/style.css' %}" />
 <link rel="stylesheet" href="{% static 'css/normalize.css' %}" />
+<style>
+    .background-image::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url("{% static 'success.png' %}");
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+        opacity: 0.25;
+    }
 
-<main>
+    .banner {
+        position: relative;
+    }
+
+    .background-image {
+        height: 500px;
+    }
+</style>
+<main style="background-color: #f5f5f5f5">
     <div class="container">
         <div class="row">
             <div class="col-md-12">
                 <div class="banner">
-                    <img src="{% static 'images/success.jpg' %}" alt="Success" />
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-12">
-                <div class="contact-form">
-                    <div class="form-container">
-                        <h2>Thank you for contacting us!</h2>
-                        <p>
-                            We have received your message and will get back to you as
-                            soon as possible.
-                        </p>
+                    <div
+                        class="background-image d-flex align-items-center justify-content-center"
+                    >
+                        <div class="row">
+                            <div class="col-md-12 text-center">
+                                <div class="contact-form">
+                                    <div class="form-container">
+                                        <h2 class="font-size-lg">
+                                            Thank you for contacting me!
+                                        </h2>
+                                        <p class="font-size-md">
+                                            I have received your message and
+                                            will get back to you as soon as
+                                            possible.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

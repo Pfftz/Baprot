@@ -1,16 +1,141 @@
-{% extends "base.html" %}
+{% extends "base.html" %} {% block content %}
 
-{% block content %}
+<link
+    rel="stylesheet"
+    href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+/>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
 
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    body {
+        font-family: Arial, sans-serif;
+        line-height: 1.6;
+    }
 
-<div class="container mt-5">
-    <h2><a href="{% url 'books_fbv_admin:book_list' %}" class="btn btn-primary">Books Admin</a>: Edit</h2>
+    /* Header styles */
 
-    <form method="post" class="mt-3" enctype="multipart/form-data">{% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit" class="btn btn-success">Submit</button>
-    </form>
-</div>
+    .logo {
+        font-size: 2rem;
+    }
 
+    .reachUs-button {
+        padding: 1rem;
+        background-color: #0dac30;
+        border: none;
+        color: white;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+    .reachUs-button:hover {
+        background-color: #1ac840;
+    }
+
+    /* banner section styles */
+    .banner {
+        text-align: center;
+        background-color: #ffffff;
+        margin: 0 auto;
+    }
+
+    .banner img {
+        max-width: 100%;
+        height: auto;
+    }
+    /* Contact form styles */
+    .contact-form {
+        padding: 40px 0;
+        margin: 0 10px;
+    }
+
+    .form-container {
+        max-width: 40%;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #ffffff;
+        border-radius: 10px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .contact-form h2 {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .form-group {
+        margin-bottom: 20px;
+    }
+
+    .form-container label {
+        display: block;
+        font-weight: bold;
+    }
+    .form-container input,
+    textarea {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        margin-bottom: 1rem;
+        resize: vertical;
+    }
+    .submit-button {
+        padding: 10px 20px;
+        background-color: #0dac30;
+        border: none;
+        color: white;
+        border-radius: 4px;
+        font-size: 1rem;
+        cursor: pointer;
+    }
+
+    /* Contact info styles */
+    .contact-info {
+        text-align: center;
+        padding: 50px 0;
+        background-color: #f7f7f7;
+    }
+
+    .contact-info h2 {
+        margin-bottom: 20px;
+    }
+
+    /* Footer styles */
+    footer {
+        padding: 20px;
+        text-align: center;
+        background-color: #333;
+        color: white;
+    }
+    /* Hamburger styles */
+    .hamburger {
+        display: none;
+        color: rgb(0, 0, 0);
+        font-size: 1.5rem;
+        cursor: pointer;
+    }
+
+    /* Media queries for responsiveness */
+    @media only screen and (max-width: 768px) {
+        .logo {
+            display: none;
+        }
+
+        .hamburger {
+            display: flex;
+        }
+    }
+</style>
+<section class="contact-form">
+    <div class="form-container">
+        <h2>Add Details</h2>
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %} {{ form.as_p }}
+            <button type="submit" class="submit-button">Submit</button>
+        </form>
+    </div>
+</section>
 {% endblock %}

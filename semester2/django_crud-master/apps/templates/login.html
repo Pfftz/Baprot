@@ -54,8 +54,11 @@
 
         /* Avatar image */
         img.avatar {
-            width: 300px;
+            width: 200px; /* Adjust this to change the size of the image */
+            height: 200px; /* Make sure the height matches the width */
+            object-fit: cover; /* Ensure the image covers the full content box */
             border-radius: 50%;
+            border: 3px solid #000; /* Change the border color to black */
         }
 
         /* Add padding to containers */
@@ -94,7 +97,7 @@
 
             <div class="imgcontainer">
                 <img
-                    src="{% static 'avatar.png' %}"
+                    src="{% static 'penitent.png' %}"
                     alt="Avatar"
                     class="avatar"
                 />

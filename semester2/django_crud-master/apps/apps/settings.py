@@ -37,7 +37,6 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-
     'theme',
     'books_fbv_admin',    
 ]
@@ -120,8 +119,8 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 
-STATIC_URL = 'static/'
-STATICFILES_DIRS = (os.path.join(BASE_DIR,'STATIC'),)
+STATIC_URL = '/static/'
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static'),]
 #LOGIN_URL = '/accounts/login/'
 
 MEDIA_URL = 'media/'
@@ -134,6 +133,7 @@ LOGOUT_REDIRECT_URL = '/'
 DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
 
 # Email settings
+CONTACT_EMAIL = 'theRizzler@ohio.gov'
 EMAIL_HOST = 'sandbox.smtp.mailtrap.io'
 EMAIL_HOST_USER = '39528f5ad33f15'
 EMAIL_HOST_PASSWORD = '4b05269fb2a152'
