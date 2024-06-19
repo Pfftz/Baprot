@@ -401,6 +401,8 @@ img[alt="cart-logo-2"] {
 .book-card-img {
     width: auto; /* This will make the image take up the full width of its container */
     height: 100%; /* This will let the height adjust automatically to maintain the aspect ratio */
+    display: block;
+    margin: auto;
 }
 
 .add-to-cart {
@@ -469,6 +471,8 @@ img[alt="cart-logo-2"] {
 
     .book-card-img {
         height: 300px;
+        display: block;
+        margin: auto;
     }
 
     .location-info {
