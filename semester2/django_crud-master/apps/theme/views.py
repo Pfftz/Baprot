@@ -44,17 +44,11 @@ def contact(request):
 def success(request):
     return render(request, 'success.html')
 
-def index(request):
-    return render(request , 'index.html')
-
 def contactform(request):
     return render(request,'contactus.html')
 
 def about(request):
     return render(request,'about.html')
-
-def reaction(request):
-    return render(request,'reaction.html')
 
 def logout(request):
     auth.logout(request)
