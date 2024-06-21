@@ -16,7 +16,6 @@ def book_list(request, template_name='books_fbv_admin/book_list.html'):
     data['object_list'] = book
     return render(request, template_name, data)
 
-@staff_member_required
 def book_borrow(request, pk):
     book = get_object_or_404(Book, pk=pk)
     if book.stock > 0:
